@@ -6,8 +6,15 @@ import Navbar from "./components/Navbar";
 import DashboardPage from "./pages/DashboardPage";
 import HomePage from "./pages/HomePage";
 import PracticePage from "./pages/PracticePage";
+import ShorthandPage from "./pages/ShorthandPage";
+import TypingTestPage from "./pages/TypingTestPage";
 
-export type Page = "home" | "practice" | "dashboard";
+export type Page =
+  | "home"
+  | "practice"
+  | "dashboard"
+  | "typing-test"
+  | "shorthand";
 export type Difficulty = "beginner" | "intermediate" | "advanced" | "exam";
 
 const queryClient = new QueryClient();
@@ -37,6 +44,12 @@ export default function App() {
           )}
           {currentPage === "dashboard" && (
             <DashboardPage navigateTo={navigateTo} />
+          )}
+          {currentPage === "typing-test" && (
+            <TypingTestPage navigateTo={navigateTo} />
+          )}
+          {currentPage === "shorthand" && (
+            <ShorthandPage navigateTo={navigateTo} />
           )}
         </main>
         <Footer />

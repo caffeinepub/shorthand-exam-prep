@@ -1,5 +1,6 @@
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import { Menu, PenLine, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import type { Difficulty, Page } from "../App";
 
@@ -12,23 +13,34 @@ export default function Navbar({ currentPage, navigateTo }: NavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const navLinks = [
-    { label: "Home", page: "home" as Page },
-    { label: "Practice", page: "practice" as Page },
     { label: "Dashboard", page: "dashboard" as Page },
+    { label: "Practice", page: "practice" as Page },
+    { label: "Library", page: "shorthand" as Page },
+    { label: "Progress", page: "dashboard" as Page },
+    { label: "Typing Test", page: "typing-test" as Page },
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-navy shadow-md">
-      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-16">
-        {/* Logo */}
+    <header
+      className="sticky top-0 z-50"
+      style={{ backgroundColor: "#002E2C" }}
+    >
+      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
+        {/* Brand */}
         <button
           type="button"
-          className="flex items-center gap-2 text-white font-bold text-xl"
+          className="flex items-center gap-2 text-white font-semibold text-xl tracking-tight"
           onClick={() => navigateTo("home")}
           data-ocid="nav.link"
         >
-          <PenLine className="w-6 h-6 text-teal" />
-          <span>ShorthandPro</span>
+          {/* त monogram */}
+          <span
+            className="w-8 h-8 rounded-md flex items-center justify-center text-sm font-bold"
+            style={{ backgroundColor: "#0F6B5F", color: "#fff" }}
+          >
+            त
+          </span>
+          <span>तक्षशिला</span>
         </button>
 
         {/* Desktop nav */}
@@ -36,13 +48,13 @@ export default function Navbar({ currentPage, navigateTo }: NavbarProps) {
           {navLinks.map((link) => (
             <button
               type="button"
-              key={link.page}
+              key={link.label}
               onClick={() => navigateTo(link.page)}
               data-ocid={`nav.${link.page}.link`}
               className={`text-sm font-medium transition-colors ${
                 currentPage === link.page
-                  ? "text-teal"
-                  : "text-white/80 hover:text-white"
+                  ? "text-white"
+                  : "text-white/65 hover:text-white"
               }`}
             >
               {link.label}
@@ -50,24 +62,25 @@ export default function Navbar({ currentPage, navigateTo }: NavbarProps) {
           ))}
         </nav>
 
-        {/* Auth buttons */}
+        {/* Right side: CTA + Avatar */}
         <div className="hidden md:flex items-center gap-3">
           <Button
-            variant="outline"
             size="sm"
-            className="border-white/40 text-white bg-transparent hover:bg-white/10 hover:text-white"
-            data-ocid="nav.login.button"
-          >
-            Log In
-          </Button>
-          <Button
-            size="sm"
-            className="bg-teal hover:bg-teal-dark text-white border-0"
+            className="text-white border-0 text-sm font-medium px-4"
+            style={{ backgroundColor: "#0F6B5F" }}
             onClick={() => navigateTo("practice")}
             data-ocid="nav.signup.button"
           >
-            Sign Up
+            Start Free
           </Button>
+          <Avatar className="w-8 h-8 cursor-pointer">
+            <AvatarFallback
+              className="text-xs font-semibold"
+              style={{ backgroundColor: "#0F6B5F", color: "#fff" }}
+            >
+              त
+            </AvatarFallback>
+          </Avatar>
         </div>
 
         {/* Mobile hamburger */}
@@ -87,41 +100,36 @@ export default function Navbar({ currentPage, navigateTo }: NavbarProps) {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden bg-navy-dark border-t border-white/10 px-6 py-4 flex flex-col gap-3">
+        <div
+          className="md:hidden border-t border-white/10 px-6 py-4 flex flex-col gap-3"
+          style={{ backgroundColor: "#003835" }}
+        >
           {navLinks.map((link) => (
             <button
               type="button"
-              key={link.page}
+              key={link.label}
               onClick={() => {
                 navigateTo(link.page);
                 setMobileOpen(false);
               }}
               className={`text-sm font-medium text-left transition-colors ${
-                currentPage === link.page ? "text-teal" : "text-white/80"
+                currentPage === link.page ? "text-white" : "text-white/65"
               }`}
             >
               {link.label}
             </button>
           ))}
-          <div className="flex gap-3 pt-2">
-            <Button
-              variant="outline"
-              size="sm"
-              className="border-white/40 text-white bg-transparent hover:bg-white/10 hover:text-white flex-1"
-            >
-              Log In
-            </Button>
-            <Button
-              size="sm"
-              className="bg-teal hover:bg-teal-dark text-white border-0 flex-1"
-              onClick={() => {
-                navigateTo("practice");
-                setMobileOpen(false);
-              }}
-            >
-              Sign Up
-            </Button>
-          </div>
+          <Button
+            size="sm"
+            className="text-white border-0 mt-2"
+            style={{ backgroundColor: "#0F6B5F" }}
+            onClick={() => {
+              navigateTo("practice");
+              setMobileOpen(false);
+            }}
+          >
+            Start Free
+          </Button>
         </div>
       )}
     </header>

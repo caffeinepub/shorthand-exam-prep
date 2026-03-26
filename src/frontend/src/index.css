@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -6,49 +6,54 @@
 
 @layer base {
   :root {
-    --radius: 0.625rem;
+    --radius: 0.75rem;
 
-    /* Navy + Teal palette */
-    --navy: 0.26 0.085 240;
-    --navy-dark: 0.2 0.07 240;
-    --teal: 0.63 0.115 202;
-    --teal-dark: 0.55 0.1 202;
-    --section-band: 0.97 0.012 238;
-    --icon-bg: 0.95 0.03 240;
-    --navy-icon: 0.35 0.09 240;
+    /* Rapid Steno – Deep Teal palette */
+    /* #002E2C → oklch ≈ 0.18 0.048 191 */
+    --brand-dark: 0.18 0.048 191;
+    /* #004d4a → oklch ≈ 0.27 0.055 191 */
+    --brand-mid: 0.27 0.055 191;
+    /* #0F6B5F → oklch ≈ 0.43 0.09 180 */
+    --brand-accent: 0.43 0.09 180;
+    /* #F3F5F6 page bg */
+    --page-bg: 0.97 0.005 215;
+    /* #1F2A33 text */
+    --text-dark: 0.24 0.022 228;
+    /* #E6EAED border */
+    --border-light: 0.92 0.01 218;
 
-    --background: 1 0 0;
-    --foreground: 0.21 0.02 252;
+    --background: 0.97 0.005 215;
+    --foreground: 0.24 0.022 228;
     --card: 1 0 0;
-    --card-foreground: 0.21 0.02 252;
+    --card-foreground: 0.24 0.022 228;
     --popover: 1 0 0;
-    --popover-foreground: 0.21 0.02 252;
-    --primary: 0.63 0.115 202;
+    --popover-foreground: 0.24 0.022 228;
+    --primary: 0.43 0.09 180;
     --primary-foreground: 1 0 0;
-    --secondary: 0.97 0.012 238;
-    --secondary-foreground: 0.26 0.085 240;
-    --muted: 0.97 0.012 238;
-    --muted-foreground: 0.52 0.012 252;
-    --accent: 0.95 0.03 240;
-    --accent-foreground: 0.35 0.09 240;
+    --secondary: 0.94 0.01 218;
+    --secondary-foreground: 0.24 0.022 228;
+    --muted: 0.94 0.01 218;
+    --muted-foreground: 0.52 0.012 220;
+    --accent: 0.94 0.01 218;
+    --accent-foreground: 0.24 0.022 228;
     --destructive: 0.577 0.245 27.325;
     --destructive-foreground: 0.985 0 0;
-    --border: 0.92 0.015 238;
-    --input: 0.92 0.015 238;
-    --ring: 0.63 0.115 202;
-    --chart-1: 0.63 0.115 202;
-    --chart-2: 0.35 0.09 240;
-    --chart-3: 0.7 0.18 140;
-    --chart-4: 0.75 0.16 60;
-    --chart-5: 0.65 0.2 30;
-    --sidebar: 0.26 0.085 240;
+    --border: 0.92 0.01 218;
+    --input: 0.92 0.01 218;
+    --ring: 0.43 0.09 180;
+    --chart-1: 0.43 0.09 180;
+    --chart-2: 0.27 0.055 191;
+    --chart-3: 0.65 0.15 155;
+    --chart-4: 0.72 0.16 60;
+    --chart-5: 0.62 0.2 30;
+    --sidebar: 0.18 0.048 191;
     --sidebar-foreground: 1 0 0;
-    --sidebar-primary: 0.63 0.115 202;
+    --sidebar-primary: 0.43 0.09 180;
     --sidebar-primary-foreground: 1 0 0;
-    --sidebar-accent: 0.32 0.09 240;
+    --sidebar-accent: 0.24 0.055 191;
     --sidebar-accent-foreground: 1 0 0;
-    --sidebar-border: 0.32 0.09 240;
-    --sidebar-ring: 0.63 0.115 202;
+    --sidebar-border: 0.24 0.055 191;
+    --sidebar-ring: 0.43 0.09 180;
   }
 
   * {
@@ -56,6 +61,6 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: "Plus Jakarta Sans", sans-serif;
+    font-family: "Lexend", sans-serif;
   }
 }

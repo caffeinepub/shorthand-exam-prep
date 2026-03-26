@@ -16,19 +16,26 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Plus Jakarta Sans', 'sans-serif'],
+        sans: ['Lexend', 'sans-serif'],
       },
       colors: {
-        navy: "oklch(var(--navy))",
-        "navy-dark": "oklch(var(--navy-dark))",
-        teal: "oklch(var(--teal))",
-        "teal-dark": "oklch(var(--teal-dark))",
-        "section-band": "oklch(var(--section-band))",
-        "icon-bg": "oklch(var(--icon-bg))",
-        "navy-icon": "oklch(var(--navy-icon))",
+        "brand-dark":   "oklch(var(--brand-dark))",
+        "brand-mid":    "oklch(var(--brand-mid))",
+        "brand-accent": "oklch(var(--brand-accent))",
+        "page-bg":      "oklch(var(--page-bg))",
+        "text-dark":    "oklch(var(--text-dark))",
+        "border-light": "oklch(var(--border-light))",
+        /* keep legacy navy/teal aliases so old pages don't break */
+        navy:           "oklch(var(--brand-dark))",
+        "navy-dark":    "oklch(var(--brand-mid))",
+        teal:           "oklch(var(--brand-accent))",
+        "teal-dark":    "oklch(0.38 0.08 178)",
+        "section-band": "oklch(var(--page-bg))",
+        "icon-bg":      "oklch(0.95 0.012 191)",
+        "navy-icon":    "oklch(var(--brand-accent))",
         border: "oklch(var(--border))",
-        input: "oklch(var(--input))",
-        ring: "oklch(var(--ring) / <alpha-value>)",
+        input:  "oklch(var(--input))",
+        ring:   "oklch(var(--ring) / <alpha-value>)",
         background: "oklch(var(--background))",
         foreground: "oklch(var(--foreground))",
         primary: {
@@ -83,8 +90,8 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       boxShadow: {
-        card: "0 2px 8px 0 rgba(13,59,102,0.08), 0 1px 2px 0 rgba(13,59,102,0.04)",
-        "card-hover": "0 4px 16px 0 rgba(13,59,102,0.14), 0 2px 4px 0 rgba(13,59,102,0.06)",
+        card: "0 1px 4px 0 rgba(0,46,44,0.08), 0 1px 2px 0 rgba(0,46,44,0.04)",
+        "card-hover": "0 4px 16px 0 rgba(0,46,44,0.14), 0 2px 4px 0 rgba(0,46,44,0.06)",
       },
       keyframes: {
         "accordion-down": {
